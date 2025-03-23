@@ -1,66 +1,100 @@
-## Movement:Calibrating Confidence Scores (Subash Rathlavath).md
+# Movement: Calibrating Confidence Scores (Subash Rathlavath)
 
-## Personal details
-Please include the following information:
-- **Subash Rathlavath**
-- **subashrathlavath@gmail.com**
-- **subashrathlavath**
-- **subashrathlavath**
-- **Hyderabad, India (GMT+5:30)**
-- **Proposal discussion link**
+## **Personal Details**  
+- **Name:** Subash Rathlavath  
+- **Email:** subashrathlavath@gmail.com  
+- **GitHub:** [subashrathlavath](https://github.com/subashrathlavath)  
+- **Zulip:** subashrathlavath  
+- **Location & Time Zone:** Hyderabad, India (GMT+5:30)  
+- **Proposal discussion link:** [Calibrating Confidence Scores PR](https://github.com/neuroinformatics-unit/movement/pull/508)  
 
-    Please link to the pull request where you discussed your project proposal with the community. 
+---
 
-## Project proposal 
-_Extension: max 1 page_
+## **Project Proposal**  
 
-- **Synopsis**
+### **Synopsis**  
+Pose estimation models provide confidence scores for predicted keypoints, but these scores are often **uncalibrated**, leading to unreliable confidence values. This project aims to **improve the reliability of confidence scores** in Movement by implementing **Log-Log Regression Calibration, Binning-Based Calibration, and Temperature Scaling**.  
 
-    Briefly explain: what is the project about? Why is it important? What are the goals? What are the deliverables? How would the open source community benefit from this project?
+### **Goals & Deliverables:**  
+- A Python implementation of a method to **calibrate the confidence scores** provided by at least one of the pose estimation frameworks supported in movement (DeepLabCut, SLEAP, LightningPose, anipose).
+- Tests to cover any added functionality.
+- Documentation for the new functionality.
+- An example use case in the movement gallery. 
 
-- **Implementation timeline**
+### **Why is this important?**  
+- Enhances **trust** in confidence scores from pose estimation models  
+- Enables **fair comparisons** across different frameworks  
+- Helps in **filtering high/low confidence keypoints** for better analysis  
 
-    Please include the following information:
-    1. A bullet point list with **minimal set of deliverables**
-    2. Additional **stretch goals** or "if time allows" deliverables (optional)
-    3. A detailed **weekly timeline**: when do you plan to do what? 
-        - Please use a week as a minimal unit of time, and include any planned vacations or other commitments. 
-        - This timeline could be formatted as a table. 
-        - Remember to also include the number of hours per week you plan to work on the GSoC project. 
-        - When estimating the required time for a task, keep in mind deliverables should include investigation/research, coding and documentation. 
-        - The default schedule for GSoC is 12 weeks - see the [GSoC timeline](https://developers.google.com/open-source/gsoc/timeline) for precise dates. 
-        - Also please specify any prep work you plan to do during the "Community bonding period".
-        - Usually week 1's deliverables already include some code. Week 6 marks the mid-term point, where usually more than half of the project should be completed. At the end of week 11 you may want to try to "freeze" the code and complete any remaining tests or documentation in weeks 11 and 12.
+---
 
-- **Communication plan**
+## **Implementation Timeline**  
 
-    Please explain: how do you plan to communicate with your mentor? How often? (e.g., daily or weekly stand-ups, longer meetings..?) What communication channels will you use? (e.g., video calls, Zulip chat...?)
+### **Minimal Deliverables:**  
+- Implement **Log-Log Regression Calibration (Keypoint-Moseq style)**  
+- Implement **Binning-Based Calibration**  
+- Implement **Temperature Scaling**  
+- Develop **Reliability Diagrams** for visualization  
+- Compute **Expected Calibration Error (ECE)**  
+- Provide **calibration utilities and notebooks**  
 
-## Personal statement
+### **Stretch Goals:**  
+- Optimize calibration methods for **speed and accuracy**  
+- Compare different calibration techniques using **benchmark datasets**  
 
-_Extension: max 0.75 page_
+#### Weekly timeline  
+| **Week**  | **Tasks**  |
+|-----------|-----------|
+| **Community bonding**  | Study existing confidence score calibration techniques and Movement’s framework. Discuss approaches with the mentor.  |
+| **Week 1-2**  | Implement temperature scaling for confidence scores and test initial results.  |
+| **Week 2-3**  | Implement log log regression (keypoint-moseq style) for confidence score calibration.  |
+| **Week 3-4**  | Research and implement histogram binning for calibration.  |
+| **Week 4-5**  | Validate and compare calibration techniques on Movement’s sample data.  |
+| **Week 5-6**  | Integrate the best-performing calibration approach into Movement.  |
+| **Week 6-7 (Mid-term)**  | Document findings, code structure, and initial results.  |
+| **Week 7-8**  | Improve implementation efficiency and test on diverse datasets.  |
+| **Week 8-9**  | Develop visualization tools for calibration assessment.  |
+| **Week 9-10**  | Finalize implementation and address mentor feedback.  |
+| **Week 10-11**  | Conduct extensive testing and refine calibration methods.  |
+| **Week 11-12**  | Freeze code, complete documentation, and write a tutorial.  |
+| **Week 12-13**  | Submit final report and prepare for project submission.  |
 
-- **Past experienc.** 
+---
 
-    Please describe your past experience with programming, open source, or any other experience you deem relevant for the project you are applying for. Any successful open source projects, published work or content of the like should definitely be highlighted.
-- **Motivation: why this project?**
+## **Communication Plan**  
+ **Weekly check-ins** with mentors via **Zulip** and GitHub discussions.  
+ Regular updates via **GitHub issues & PRs**.  
+ Virtual meetings as needed for feedback and discussions.  
 
-    Why are you interested in this specific project? What aspects of it motivate you to work on it? How does it link to your personal or professional interests? How do you envision its impact in the open source community?
-- **Match: why you?**
+---
 
-    Why should we choose you for this project? What unique skills or experiences can you bring to the project and the community? Is there something you have worked on in the past that makes you particularly well-suited for this project?
-- **Availability**
+## **Personal Statement**  
 
-    Please state if you have any other plans for the work period (school work, another job, planned vacation)? If so, how do you plan to combine them with your GSoC work?
+### **Past Experience**  
+I have experience in **Python, NumPy, pandas, and machine learning**. I have worked on pose estimation, data analysis, and model calibration techniques. My open-source journey has started with **Movement**, and I am actively contributing to its calibration module.  
 
-## GSoC
+### **Motivation: Why this project?**  
+I am passionate about **pose estimation and model calibration**. This project aligns with my interests in **computer vision, AI, and uncertainty quantification**. Ensuring that confidence scores are **trustworthy and interpretable** is crucial for real-world applications.  
 
-_Extension: max 0.25 page_
+### **Match: Why me?**  
+- Strong background in **Python & ML**  
+- Experience with **DeepLabCut & pose estimation**  
+- Active contributor to Movement  
+- Excited about solving real-world problems in **confidence calibration**  
 
-- **GSoC experience**
+### **Availability**  
+I have **no major commitments** during the GSoC period and can dedicate **20+ hours per week** to this project.
 
-    What do you expect from the program?
+---
 
-- **Are you also applying to projects with other organisations in GSoC 2025?**
+## **GSoC**  
 
-    If so, which ones? What would be your preference in case of a tie?
+### **GSoC Experience**  
+I expect to **learn, contribute, and grow** in the open-source community, gaining experience in **ML, calibration techniques, and real-world software development**. 
+
+### **Are you applying to other GSoC projects?**  
+No, **this is my only application**, and I am fully committed to working with **Movement & NIU**.And eager to continue advancing **NIU**’s vision through sustained collaboration and technical growth post-GSoC  
+
+---
+
+**Looking forward to making confidence scores more reliable in Movement!** 
