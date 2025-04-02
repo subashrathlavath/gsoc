@@ -6,7 +6,8 @@
 - **GitHub:** [subashrathlavath](https://github.com/subashrathlavath)  
 - **Zulip:** subashrathlavath  
 - **Location & Time Zone:** Hyderabad, India (GMT+5:30)  
-- **Proposal discussion link:** [Calibrating Confidence Scores PR](https://github.com/neuroinformatics-unit/movement/pull/508)  
+- **Proposal discussion link:** [Calibrating Confidence Scores Poposal](https://github.com/neuroinformatics-unit/gsoc/pull/10)  
+- **Project discussion:** [Draft PR](https://github.com/neuroinformatics-unit/movement/pull/508)
 
 ---
 
