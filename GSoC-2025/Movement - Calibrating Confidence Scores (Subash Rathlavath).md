@@ -7,72 +7,62 @@
 - **Zulip:** subashrathlavath  
 - **Location & Time Zone:** Hyderabad, India (GMT+5:30)  
 - **Proposal discussion link:** [Calibrating Confidence Scores Poposal](https://github.com/neuroinformatics-unit/gsoc/pull/10)  
-- **Project discussion:** [Draft PR](https://github.com/neuroinformatics-unit/movement/pull/508)
+- **Code contributions** [Draft PR](https://github.com/neuroinformatics-unit/movement/pull/508)
 
 ---
 
 ## **Project Proposal**  
-
 ### **Synopsis**  
-Pose estimation models provide confidence scores for predicted keypoints, but these scores are often **uncalibrated**, leading to unreliable confidence values. This project aims to **improve the reliability of confidence scores** in Movement by implementing **Log-Log Regression Calibration, Binning-Based Calibration, and Temperature Scaling**.  
-
-### **Goals & Deliverables:**  
-- A Python implementation of a method to **calibrate the confidence scores** provided by at least one of the pose estimation frameworks supported in movement (DeepLabCut, SLEAP, LightningPose, anipose).
-- Tests to cover any added functionality.
+Pose estimation models provide confidence scores for predicted keypoints, but these scores are often **uncalibrated**, leading to unreliable confidence values. This project aims to **improve the reliability of confidence scores** in Movement by implementing few of the calibration methods which are optimal.  
+### **Goal:**  
+Goal of this project is to implement a method to **calibrate the confidence scores** provided by at least one of the pose estimation frameworks supported in movement (DeepLabCut, SLEAP, LightningPose, anipose). This method will allow researchers to compare results across frameworks, better filter high/low confidence values, and better interpret model performance
+## **Implementation Timeline** 
+### **Minimal deliverables** 
+- A Python implementation of methods to **calibrate the confidence scores** provided by at least one of the pose estimation frameworks supported in movement (DeepLabCut, SLEAP, LightningPose, anipose).
+- Develop **Reliability Diagrams** for visualization to understand how well our confidence scores match reality. 
+- Compute **Expected Calibration Error (ECE)**, a numerical measure of how well our confidence scores match reality. 
+- Develop tests to cover any added functionality.
 - Documentation for the new functionality.
-- An example use case in the movement gallery. 
+- Provide **calibration utilities and notebooks**
+- A blog post summarising the journey of this project. 
 
-### **Why is this important?**  
-- Enhances **trust** in confidence scores from pose estimation models  
-- Enables **fair comparisons** across different frameworks  
-- Helps in **filtering high/low confidence keypoints** for better analysis  
-
----
-
-## **Implementation Timeline**  
-
-### **Minimal Deliverables:**  
-- Implement **Log-Log Regression Calibration (Keypoint-Moseq style)**  
-- Implement **Binning-Based Calibration**  
-- Implement **Temperature Scaling**  
-- Develop **Reliability Diagrams** for visualization  
-- Compute **Expected Calibration Error (ECE)**  
-- Provide **calibration utilities and notebooks**  
-
-### **Stretch Goals:**  
+### **Stretch goals (if time allows)**  
+- Extend support to all other pose estimation frameworks supported by movement.
 - Optimize calibration methods for **speed and accuracy**  
-- Compare different calibration techniques using **benchmark datasets**  
+- Compare different calibration techniques using **benchmark datasets**
+- **Interactive Napari Plugin** Real-time visualization and interaction with calibrated confidence scores during tracking, enabling immediate validation of behavior analysis.   
 
 #### Weekly timeline  
 | **Week**  | **Tasks**  |
 |-----------|-----------|
-| **Community bonding**  | Study existing confidence score calibration techniques and Movement’s framework. Discuss approaches with the mentor.  |
-| **Week 1-2**  | Implement temperature scaling for confidence scores and test initial results.  |
-| **Week 2-3**  | Implement log log regression (keypoint-moseq style) for confidence score calibration.  |
-| **Week 3-4**  | Research and implement histogram binning for calibration.  |
-| **Week 4-5**  | Validate and compare calibration techniques on Movement’s sample data.  |
-| **Week 5-6**  | Integrate the best-performing calibration approach into Movement.  |
-| **Week 6-7 (Mid-term)**  | Document findings, code structure, and initial results.  |
-| **Week 7-8**  | Improve implementation efficiency and test on diverse datasets.  |
-| **Week 8-9**  | Develop visualization tools for calibration assessment.  |
-| **Week 9-10**  | Finalize implementation and address mentor feedback.  |
-| **Week 10-11**  | Conduct extensive testing and refine calibration methods.  |
-| **Week 11-12**  | Freeze code, complete documentation, and write a tutorial.  |
+| **Community bonding**  |- Study Movement's current framework and confidence score handling<br>- Research calibration techniques from literature (log-log regression, binning, temperature scaling)<br>- Understand Movement's data structures and API patterns<br>- Plan implementation approach with mentors  |
+| **Week 1-2**  | Implement log-log regression calibration as the primary method and test with Movement's pose estimation data. |
+| **Week 2-3**  | Implement histogram binning for calibration.  |
+| **Week 3-4**  | Research and implement temperature scaling for calibration.  |
+| **Week 4-5**  | Compare calibration techniques using:<br>- Expected Calibration Error (ECE)<br>- Reliability diagrams for each method<br>- Accuracy of filtered keypoint detection<br>- Performance on DLC_single_mouse_EPM dataset<br>- Computation time and memory usage benchmarks.  |
+| **Week 5-6**  | Integrate the best-performing calibration approaches into Movement.  |
+| **Week 6-7 (Mid-term)**  |  - Compare calibration methods' results on Movement datasets<br>- Write technical blog post about findings and implementation<br>- Ensure all code has docstrings and unit tests<br>- Update Movement gallery with calibration example  |
+| **Week 7-8**  | - Profile and optimize performance bottlenecks<br>- Test calibration on diverse Movement datasets (EPM, multi-animal, different frameworks)<br>- Validate robustness across different tracking scenarios. |
+| **Week 8-9**  | Develop visualization tools: reliability diagrams for expected vs actual confidence, interactive confidence distribution plots, and calibrated confidence overlays integrated with Movement's tracking visualization.  |
+| **Week 9-10**  | Complete core implementation: finalize API design, optimize performance bottlenecks, implement error handling, and integrate mentor feedback on calibration methods.  |
+| **Week 10-11**  | Conduct comprehensive testing: add edge case tests, benchmark performance across datasets, validate calibration accuracy, and refine methods based on test results.  |
+| **Week 11-12**  | Finalize project: freeze code, update API documentation, and create a comprehensive example notebook in Movement's gallery demonstrating calibration workflow, practical usage, and performance comparisons.  |
 | **Week 12-13**  | Submit final report and prepare for project submission.  |
 
 ---
 
 ## **Communication Plan**  
- **Weekly check-ins** with mentors via **Zulip** and GitHub discussions.  
- Regular updates via **GitHub issues & PRs**.  
- Virtual meetings as needed for feedback and discussions.  
+**Daily Standups:** Brief Zulip updates on yesterday's work, today's tasks, and any blockers
+**Weekly Check-ins:** Detailed progress reviews with mentors
+**GitHub:** Regular PRs and issue updates
+**Additional Meetings:** As needed for complex discussions 
 
 ---
 
 ## **Personal Statement**  
 
 ### **Past Experience**  
-I have experience in **Python, NumPy, pandas, and machine learning**. I have worked on pose estimation, data analysis, and model calibration techniques. My open-source journey has started with **Movement**, and I am actively contributing to its calibration module.  
+I have experience in Python, NumPy, pandas, and machine learning. Currently contributing to Movement's [calibration module](https://github.com/neuroinformatics-unit/movement/pull/508), implementing confidence calibration methods with 96% test coverage. Previously worked on pose estimation model calibration, improving confidence score reliability by 25% in my academic project.  
 
 ### **Motivation: Why this project?**  
 I am passionate about **pose estimation and model calibration**. This project aligns with my interests in **computer vision, AI, and uncertainty quantification**. Ensuring that confidence scores are **trustworthy and interpretable** is crucial for real-world applications.  
