@@ -10,7 +10,7 @@ Please use the following template to submit your application to the NIU GSoC 202
 The more closely you follow this template, the easier it will be for us to review your application! Please include clear headings for all the different sections.
 
 ## Project title
-Follow the following format for the proposal title: `<Package Name>:<Project Name> (<Your-Name>)`. 
+Follow the following format for the proposal title: `<Package Name>-<Project Name> (<Your-Name>)` and provide it in your pull request as a new markdown file of the same name, i.e.   `<Package Name>-<Project Name> (<Your-Name>).md`
 
 E.g. "movement: support for Kalman filters (Jane Doe)". 
 
@@ -33,7 +33,7 @@ Please include the following information:
     Please link to the pull request where you discussed your project proposal with the community. 
 
 ## Project proposal 
-_Extension: max 1 page_
+_Length: max 1 page_
 
 - **Synopsis**
 
@@ -59,9 +59,9 @@ _Extension: max 1 page_
 
 ## Personal statement
 
-_Extension: max 0.75 page_
+_Length: max 0.75 page_
 
-- **Past experienc.** 
+- **Past experience.** 
 
     Please describe your past experience with programming, open source, or any other experience you deem relevant for the project you are applying for. Any successful open source projects, published work or content of the like should definitely be highlighted.
 - **Motivation: why this project?**
@@ -76,7 +76,7 @@ _Extension: max 0.75 page_
 
 ## GSoC
 
-_Extension: max 0.25 page_
+_Length: max 0.25 page_
 
 - **GSoC experience**
 
